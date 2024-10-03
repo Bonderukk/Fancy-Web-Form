@@ -3,9 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sports Facility Booking</title>
+    <link rel="stylesheet" href="../static/css/style.css">
 </head>
 <body>
-    
+    <div class="container">
+        <h1>Sports Facility Booking</h1>
+        <form id="bookingForm">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="name">Name: *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="surname">Surname: *</label>
+                    <input type="text" id="surname" name="surname" required>
+                </div>
+                <div class="form-group">
+                    <label>Gender: *</label>
+                    <div class="gender-options">
+                        <label><input type="radio" name="gender" value="male" required> Male</label>
+                        <label><input type="radio" name="gender" value="female" required> Female</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="birthdate">Date of Birth: *</label>
+                    <input type="date" id="birthdate" name="birthdate" required>
+                </div>
+                <div class="form-group">
+                    <label for="age">Age:</label>
+                    <input type="text" id="age" name="age" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email: *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number: *</label>
+                    <div class="phone-input">
+                        <select id="phonePrefix" name="phonePrefix">
+                            <option value="+421">+421</option>
+                            <option value="+420">+420</option>
+                        </select>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="facility">Facility Type: *</label>
+                    <select id="facility" name="facility" required>
+                        <option value="">Select Facility</option>
+                        <option value="indoor">Indoor</option>
+                        <option value="outdoor">Outdoor</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="sport">Sport: *</label>
+                    <select id="sport" name="sport" required>
+                        <option value="">Select Sport</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="equipment">Equipment: *</label>
+                    <select id="equipment" name="equipment" required>
+                        <option value="">Select Equipment</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Additional Services:</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="services" value="coach"> Coach</label>
+                    <label><input type="checkbox" name="services" value="refreshments"> Refreshments</label>
+                    <label><input type="checkbox" id="other" name="services" value="other"> Other</label>
+                </div>
+                <input type="text" id="otherService" name="otherService" placeholder="Specify other service" style="display: none;">
+            </div>
+            <div class="form-group">
+                <label for="comments">Comments:</label>
+                <textarea id="comments" name="comments" rows="3"></textarea>
+            </div>
+            <button type="submit">Submit Booking</button>
+        </form>
+    </div>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <h2>Booking Summary</h2>
+            <div id="summary"></div>
+            <button id="confirmBooking">Confirm Booking</button>
+            <button id="closeModal">Close</button>
+        </div>
+    </div>
+    <script src="../static/js/scripts.js"></script>
 </body>
 </html>
