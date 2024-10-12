@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Facility Booking</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Sports Facility Booking</h1>
+        <form id="bookingForm">
+            <div class="form-columns">
+                <div class="form-column">
+                    <!-- Left column content -->
+                    <div class="form-group">
+                        <label for="name"><i class="fas fa-user"></i> Name: *</label>
+                        <div class="input-container">
+                            <input type="text" id="name" name="name" required maxlength="50">
+                            <span class="char-count"></span>
+                        </div>
+                        <span class="error" id="nameError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="surname"><i class="fas fa-user"></i> Surname: *</label>
+                        <div class="input-container">
+                            <input type="text" id="surname" name="surname" required maxlength="50">
+                            <span class="char-count"></span>
+                        </div>
+                        <span class="error" id="surnameError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-venus-mars"></i> Gender: *</label>
+                        <div class="gender-options">
+                            <label class="gender-option">
+                                <input type="radio" id="male" name="gender" value="male" required>
+                                <span class="radio-button"></span>
+                                Male
+                            </label>
+                            <label class="gender-option">
+                                <input type="radio" id="female" name="gender" value="female" required>
+                                <span class="radio-button"></span>
+                                Female
+                            </label>
+                        </div>
+                        <span class="error" id="genderError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="birthdate"><i class="fas fa-birthday-cake"></i> Date of Birth: *</label>
+                        <input type="date" id="birthdate" name="birthdate" required>
+                        <span class="error" id="birthdateError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="age"><i class="fas fa-sort-numeric-up"></i> Age: *</label>
+                        <input type="number" id="age" name="age" required readonly>
+                        <span class="error" id="ageError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="email"><i class="fas fa-envelope"></i> Email: *</label>
+                        <input type="email" id="email" name="email" required>
+                        <span class="error" id="emailError"></span>
+                    </div>
+                    
+                    <label for="phone"><i class="fas fa-phone"></i> Phone Number: *</label>
+                    <div class="form-group phone-input">
+                        <select id="phonePrefix" name="phonePrefix">
+                            <option value="+421">+421</option>
+                            <option value="+420">+420</option>
+                        </select>
+                        <input type="tel" id="phone" name="phone" required pattern="[0-9]{9}" maxlength="9" inputmode="numeric">
+                    </div>
+                    <span class="error" id="phoneError"></span>
+                   
+                    <div class="form-group">
+                        <label><i class="fas fa-concierge-bell"></i> Additional Services:</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="coach" name="services" value="coach">
+                                <label for="coach"><span class="custom-checkbox"></span>Coach</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="refreshments" name="services" value="refreshments">
+                                <label for="refreshments"><span class="custom-checkbox"></span>Refreshments</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="other" name="services" value="other">
+                                <label for="other"><span class="custom-checkbox"></span>Other</label>
+                            </div>
+                        </div>
+                        <div class="input-container">
+                            <input type="text" id="otherService" name="otherService" style="display: none;" maxlength="100">
+                            <span class="char-count"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-column">
+                    <!-- Right column content -->
+                    <div class="form-group">
+                        <label for="facility"><i class="fas fa-building"></i> Facility Type: *</label>
+                        <select id="facility" name="facility" required>
+                            <option value="">Select Facility</option>
+                            <option value="indoor">Indoor</option>
+                            <option value="outdoor">Outdoor</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="sport"><i class="fas fa-futbol"></i> Sport: *</label>
+                        <select id="sport" name="sport" required>
+                            <option value="">Select Sport</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="equipment"><i class="fas fa-dumbbell"></i> Equipment: *</label>
+                        <select id="equipment" name="equipment" required>
+                            <option value="">Select Equipment</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="room"><i class="fas fa-door-open"></i> Room/Space: *</label>
+                        <select id="room" name="room" required>
+                            <option value="">Select Room/Space</option>
+                            <option value="indoor-court">Indoor Court</option>
+                            <option value="outdoor-field">Outdoor Field</option>
+                            <option value="gym">Gym</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="bookingTime"><i class="fas fa-clock"></i> Booking Time: *</label>
+                        <input type="datetime-local" id="bookingTime" name="bookingTime" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="duration"><i class="fas fa-hourglass-half"></i> Duration (hours): *</label>
+                        <input type="number" id="duration" name="duration" min="1" max="8" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="peopleCount"><i class="fas fa-users"></i> Number of People: *</label>
+                        <input type="number" id="peopleCount" name="peopleCount" min="1" max="20" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="price"><i class="fas fa-tag"></i> Price: *</label>
+                        <input type="number" id="price" name="price" readonly>
+                    </div>
+                </div>
+
+            </div>
+            <!-- Additional services and comments (full width) -->
+            
+            <div class="form-columns">
+                <div class="form-column">
+                    <div class="form-group full-width">
+                        <label for="comments"><i class="fas fa-comment"></i> Comments:</label>
+                        <div class="input-container">
+                            <textarea id="comments" name="comments" rows="3" maxlength="100"></textarea>
+                            <span class="char-count"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-column">
+                    <button type="submit" class="submit-button">Submit Booking</button>
+                    
+                    <div class="hidden-name-section">
+                        <button type="button" id="revealNameBtn">Reveal Hidden Name</button>
+                        <input type="text" id="hiddenName" value="Matus Bednarik" style="display: none;" readonly>
+                    </div>
+                </div>
+            </div>
+        </form>
+        
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <h2>Booking Summary</h2>
+                <div id="summary"></div>
+                <div class="modal-buttons">
+                    <button id="confirmBooking">Confirm Booking</button>
+                    <button id="closeModal">Close</button>
+                </div>
+            </div>
+        </div>
+        <script src="../static/js/scripts.js"></script>
+    </body>
+</html>
